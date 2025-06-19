@@ -10,6 +10,7 @@
 
 ## dataset结构
 
+```shell
 dataset
 ├── cifar-10-batches-py
 │   ├── batches.meta
@@ -21,3 +22,6 @@ dataset
 │   ├── readme.html
 │   └── test_batch
 └── cifar-10-python.tar.gz
+```
+
+
