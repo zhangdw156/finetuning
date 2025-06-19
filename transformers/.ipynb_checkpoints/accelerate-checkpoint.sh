@@ -1,1 +1,0 @@
-accelerate launch --main_process_port 0 train_res_cifar10.py
