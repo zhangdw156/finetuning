@@ -3,3 +3,4 @@ transformers/gemma-3-1b-it-*
 transformers/cifar10_model.pth
 transformers/test.safetensors
 *.ipynb_checkpoints
+*.DS_Store
