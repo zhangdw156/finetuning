@@ -233,13 +233,13 @@ def plot_metrics(train_metrics, val_metrics):
     plt.show()
 
 # 主函数
-def main():
+def main(batch_size,num_epochs,lr):
     device = setup_env()
     
     # 加载CIFAR-10数据
     print("加载CIFAR-10数据集...")
     train_loader, val_loader, test_loader, num_classes = get_cifar10_loaders(
-        batch_size=64, val_ratio=0.1
+        batch_size=512, val_ratio=0.1
     )
     print(f"训练集大小: {len(train_loader.dataset)}, 验证集大小: {len(val_loader.dataset)}")
     
@@ -250,7 +250,7 @@ def main():
     # 定义损失函数与优化器
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(
-        model.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4
+        model.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4
     )
     scheduler = CosineAnnealingLR(optimizer, T_max=20, eta_min=1e-4)
     model, optimizer, train_loader, scheduler = accelerator.prepare(
@@ -260,7 +260,7 @@ def main():
     print("开始训练...")
     model, train_metrics, val_metrics = train_model(
         model, train_loader, val_loader, criterion, optimizer, scheduler,
-        num_epochs=20, device=device, save_path='cifar10_model.pth'
+        num_epochs=num_epochs, device=device, save_path='cifar10_model.pth'
     )
     
     # 评估模型
@@ -272,4 +272,4 @@ def main():
     plot_metrics(train_metrics, val_metrics)
 
 if __name__ == "__main__":
-    main()
+    main(batch_size=128,num_epochs=200,lr=0.05)
