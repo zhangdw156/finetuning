@@ -8,10 +8,14 @@
 
 - 尝试了transformers框架
 
+- 尝试了peft框架
+
+- 尝试了wanlab框架
+
 ## dataset结构
 
 ```shell
-dataset
+dataset/
 ├── cifar-10-batches-py
 │   ├── batches.meta
 │   ├── data_batch_1
@@ -21,7 +25,15 @@ dataset
 │   ├── data_batch_5
 │   ├── readme.html
 │   └── test_batch
-└── cifar-10-python.tar.gz
+├── cifar-10-python.tar.gz
+├── delicate_medical_r1
+│   ├── train.jsonl
+│   └── val.jsonl
+├── nlp-2025-experiment-task-4-delay
+│   ├── test.csv
+│   ├── text_classfication_submission_sample.csv
+│   └── train.csv
+└── nlp-2025-experiment-task-4-delay.zip
 ```
 
 
