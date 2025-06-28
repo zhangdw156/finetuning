@@ -4,3 +4,4 @@ transformers/cifar10_model.pth
 transformers/test.safetensors
 *.ipynb_checkpoints
 *.DS_Store
+output/
